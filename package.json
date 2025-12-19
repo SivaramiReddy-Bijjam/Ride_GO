@@ -1,6 +1,7 @@
 {
   "name": "ridego",
   "private": true,
+  "homepage": "https://sivaramireddy-bijjam.github.io/Ride_GO/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -34,4 +35,5 @@
   "overrides": {
     "vite": "npm:rolldown-vite@7.2.5"
   }
+  
 }
