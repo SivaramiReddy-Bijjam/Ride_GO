@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 import Navbar from "./components/Navbar";
@@ -11,6 +11,8 @@ import Register from "./pages/Register";
 import Booking from "./pages/Booking";
 import BookingSummary from "./pages/BookingSummary";
 import BookingHistory from "./pages/BookingHistory";
+import Tracking from "./pages/Tracking";
+
 
 export default function App() {
   const [user, setUser] = useState(
@@ -35,7 +37,6 @@ export default function App() {
     setMsg("Login successful");
   };
 
-  // ✅ FIXED REGISTER (ONLY CHANGE)
   const register = () => {
     setType("success");
     setMsg("Registration successful, please login");
@@ -49,7 +50,7 @@ export default function App() {
   };
 
   return (
-    <Router>
+    <>
       <Navbar user={user} logout={logout} />
 
       <Toast message={msg} type={type} clear={() => setMsg(null)} />
@@ -65,8 +66,11 @@ export default function App() {
           element={<BookingHistory user={user} />}
         />
       </Routes>
+      <Routes>
+  <Route path="/tracking" element={<Tracking />} />
+</Routes>
 
       <Footer />
-    </Router>
+    </>
   );
 }

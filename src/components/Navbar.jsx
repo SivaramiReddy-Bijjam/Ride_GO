@@ -106,31 +106,31 @@ export default function Navbar({ user, logout }) {
          
                    {/* ✅ AFTER LOGIN */}
           {user && userName && (
-            <span style={{ fontWeight: 600, color: "#0f172a" }}>
-              Welcome, {userName}
+            <span style={{ fontWeight: 600, color: "#150e62ff" }}>
+              Welcome👋, {userName}
             </span>
           )}
 
           {/* ✅ HOME ALWAYS VISIBLE */}
-          <Link to="/" style={{ textDecoration: "none", color: "#111827" }}>
-            Home
+          <Link to="/" style={{ textDecoration: "none", color: "#134109ff" }}>
+            Home🛖
           </Link>
 
           {user && (
             <Link
               to="/booking-history"
-              style={{ textDecoration: "none", color: "#111827" }}
+              style={{ textDecoration: "none", color: "#8d1072ff" }}
             >
-              Booking History
+              Booking History🧾
             </Link>
           )}
 
           {user && (
             <Link
               to="/tracking"
-              style={{ textDecoration: "none", color: "#0f172a", fontWeight: 600 }}
+              style={{ textDecoration: "none", color: "#0f2965ff", fontWeight: 600 }}
             >
-              Track Vehicle
+              Track Vehicle🛣️
             </Link>
           )}
 
@@ -141,13 +141,13 @@ export default function Navbar({ user, logout }) {
                 to="/login"
                 style={{ textDecoration: "none", color: "#132d64ff" }}
               >
-                Login
+                Login👇
               </Link>
               <Link
                 to="/register"
                 style={{ textDecoration: "none", color: "#0f5c1fff" }}
               >
-                Sign Up
+                Sign Up👈
               </Link>
             </>
           )}
@@ -164,7 +164,7 @@ export default function Navbar({ user, logout }) {
                 cursor: "pointer",
               }}
             >
-              Logout
+              Logout🙋‍♂️
             </button>
           )}
         </nav>

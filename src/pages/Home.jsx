@@ -4,15 +4,15 @@ import { useEffect, useState } from "react";
 /* ================= VEHICLE DATA (UNCHANGED) ================= */
 
 const CARS = [
-  { id: 1, name: "Maruti Swift", seats: 4, fuel: "Petrol", price: "₹220 / km", img: "https://cdn.pixabay.com/photo/2012/05/29/00/43/car-49278_640.jpg" },
-  { id: 2, name: "Hyundai i20", seats: 4, fuel: "Petrol", price: "₹336 / km", img: "https://cdn.pixabay.com/photo/2017/03/27/14/56/auto-2179220_640.jpg" },
-  { id: 3, name: "Honda City", seats: 4, fuel: "Petrol", price: "₹143 / km", img: "https://imgd.aeplcdn.com/642x361/n/cw/ec/194885/g-class-with-eq-power-exterior-left-front-three-quarter-5.jpeg?isig=0&q=75" },
+  { id: 1, name: "Buggati", seats: 4, fuel: "Petrol", price: "₹220 / km", img: "https://cdn.pixabay.com/photo/2012/05/29/00/43/car-49278_640.jpg" },
+  { id: 2, name: "MerceBenz", seats: 4, fuel: "Petrol", price: "₹336 / km", img: "https://cdn.pixabay.com/photo/2017/03/27/14/56/auto-2179220_640.jpg" },
+  { id: 3, name: "Mahindhra", seats: 4, fuel: "Petrol", price: "₹143 / km", img: "https://imgd.aeplcdn.com/642x361/n/cw/ec/194885/g-class-with-eq-power-exterior-left-front-three-quarter-5.jpeg?isig=0&q=75" },
   { id: 4, name: "Toyota Innova", seats: 6, fuel: "Diesel", price: "₹187 / km", img: "https://cdn.pixabay.com/photo/2016/11/29/09/32/auto-1868726_640.jpg" },
-  { id: 5, name: "Mahindra Scorpio", seats: 6, fuel: "Petrol", price: "₹208/ km", img: "https://www.livemint.com/lm-img/img/2024/08/27/600x338/nexon_cng_1706783309582_1724780803011.jpg" },
-  { id: 6, name: "Tata Nexon", seats: 5, fuel: "Petrol", price: "₹159 / km", img: "https://carindia.in/wp-content/uploads/2021/01/Toyota-Fortuner-2021-India.jpg" },
-  { id: 7, name: "Toyota Fortuner", seats: 7, fuel: "Petrol", price: "₹226 / km", img: "https://i.cdn.newsbytesapp.com/images/l53620231120103549.png" },
-  { id: 8, name: "Skoda Rapid", seats: 4, fuel: "Petrol", price: "₹148 / km", img: "https://cdn.pixabay.com/photo/2014/09/07/22/34/car-438467_640.jpg" },
-  { id: 9, name: "Volkswagen Polo", seats: 4, fuel: "Petrol", price: "₹139 / km", img: "https://storage.googleapis.com/strapi-file-uploads-pp-cpy/20230109061122_MG_Hector_BG_3_Jpg_1_7f8365bf5b.jpg" },
+  { id: 5, name: "Tata Nexon", seats: 6, fuel: "Petrol", price: "₹208/ km", img: "https://www.livemint.com/lm-img/img/2024/08/27/600x338/nexon_cng_1706783309582_1724780803011.jpg" },
+  { id: 6, name: "Fortunar", seats: 5, fuel: "Petrol", price: "₹159 / km", img: "https://carindia.in/wp-content/uploads/2021/01/Toyota-Fortuner-2021-India.jpg" },
+  { id: 7, name: "Ferari", seats: 7, fuel: "Petrol", price: "₹226 / km", img: "https://i.cdn.newsbytesapp.com/images/l53620231120103549.png" },
+  { id: 8, name: "MG Hechtor", seats: 4, fuel: "Petrol", price: "₹148 / km", img: "https://cdn.pixabay.com/photo/2014/09/07/22/34/car-438467_640.jpg" },
+  { id: 9, name: "Tata Nexon 2.O", seats: 4, fuel: "Petrol", price: "₹139 / km", img: "https://storage.googleapis.com/strapi-file-uploads-pp-cpy/20230109061122_MG_Hector_BG_3_Jpg_1_7f8365bf5b.jpg" },
   { id: 10, name: "Renault Duster", seats: 5, fuel: "Petrol", price: "₹165 / km", img: "https://i.cdn.newsbytesapp.com/images/l72920230907112608.jpeg" },
 ];
 
