@@ -15,6 +15,11 @@ const CITIES = [
   "Trichy",
 ];
 
+const Surge = [
+  "Yes",
+  "No",
+];
+
 const COUNTRY_CODES = [
   { code: "+91", label: "India" },
   { code: "+1", label: "USA" },
@@ -33,9 +38,9 @@ export default function Booking() {
   const [countryCode, setCountryCode] = useState("+91");
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
-
+  const [confirmOption,setConfirmOption]= useState(""); 
   const handleConfirm = () => {
-    if (!pickup || !drop || !date || !time || !name) {
+    if (!pickup || !drop || !date || !time || !name  ||!confirmOption)  {
       alert("Please fill all details");
       return;
     }
@@ -55,6 +60,7 @@ export default function Booking() {
       drop,
       date,
       time,
+      confirmOption,
       fare: Math.floor(Math.random() * 500) + 500,
     };
 
@@ -84,12 +90,11 @@ export default function Booking() {
         </h2>
 
         <input
-          placeholder="Full Name"
+          placeholder={"Full Name"}
           value={name}
           onChange={(e) => setName(e.target.value)}
           style={input}
         />
-
         <select value={pickup} onChange={(e) => setPickup(e.target.value)} style={input}>
           <option value="">Select Pickup City</option>
           {CITIES.map((c) => (
@@ -103,7 +108,11 @@ export default function Booking() {
             <option key={c}>{c}</option>
           ))}
         </select>
-
+        <select value={confirmOption} onChange={(e)=> setConfirmOption(e.target.value)} style={input} placeholder="Are you from surge">
+          <option value="">Are you from surge</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          </select>
         <input type="date" value={date} onChange={(e) => setDate(e.target.value)} style={input} />
         <input type="time" value={time} onChange={(e) => setTime(e.target.value)} style={input} />
 

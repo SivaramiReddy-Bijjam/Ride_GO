@@ -84,6 +84,12 @@ const CYCLES = [
   { id: 9, name: "Folding Cycle", seats: 1, fuel: "Manual", price: "₹6 / km", img: "https://images.91wheels.com/news/wp-content/uploads/2021/05/Kross-Bolt-28T.jpg?width=640&&q=80" },
   { id: 10, name: "Electric Cycle", seats: 1, fuel: "Electric", price: "₹10 / km", img: "https://imagesvs.oneindia.com/img/2024/03/gh-8-quesec-bikes-x6-series-high-performance-6-spoke-bmw-folding-bicycle-1-1024x577.jpg" },
 ];
+const HORSES = [
+  { id: 1, name: "Marwari Horse", seats: 1, fuel: "Organic", price: "₹500 / hr", img: "https://www.thesprucepets.com/thmb/n-1ji_AB4NNDeJuRHJeel2DEjS8=/4928x0/filters:no_upscale():strip_icc()/GettyImages-1211372308-08b5641bdd834ed3bb31e8622ba88002.jpg" },
+  { id: 2, name: "Arabian Horse", seats: 1, fuel: "Organic", price: "₹650 / hr", img: "https://cdn.shopify.com/s/files/1/0765/3946/1913/files/galloping_Marwari_horse.webp?v=1724072105" },
+  { id: 3, name: "Gypsy Horse", seats: 1, fuel: "Organic", price: "₹550 / hr", img: "https://cdn.seriouslyequestrian.com/wp-content/uploads/2019/05/50535282_473760713028790_4808798250059006667_n.jpg" },
+  { id: 4, name: "Rajasthan Desert Horse", seats: 1, fuel: "Organic", price: "₹700 / hr", img: "https://cdn.creatures.com/3de/f2d/e68/53a50.jpeg" },
+];
 
 
 /* ================= HOME ================= */
@@ -147,7 +153,7 @@ export default function Home({ user }) {
 
       {/* 🔹 CATEGORY BAR (ADDED ONLY) */}
       <div style={{ display: "flex", gap: 12, marginBottom: 30 }}>
-        {["ALL", "CARS", "BIKES", "CYCLES", "TRUCKS", "AUTOS", "BUSES"].map(c => (
+        {["ALL", "CARS", "BIKES", "CYCLES", "TRUCKS", "AUTOS", "BUSES", "HORSES"].map(c => (
           <button
             key={c}
             onClick={() => setCategory(c)}
@@ -205,6 +211,13 @@ export default function Home({ user }) {
         <>
           <h2 style={{ marginTop: 40 }}>🚌 Buses</h2>
           <div style={grid}>{BUSES.map(v => renderCard(v, "bus"))}</div>
+        </>
+      )} 
+      
+      {(category === "ALL" || category === "HORSES") && (
+        <>
+          <h2 style={{ marginTop: 40 }}> HORSES</h2>
+          <div style={grid}>{ HORSES.map(v => renderCard(v, "horse"))}</div>
         </>
       )}
     </div>
