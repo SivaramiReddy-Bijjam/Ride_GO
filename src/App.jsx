@@ -56,19 +56,15 @@ export default function App() {
       <Toast message={msg} type={type} clear={() => setMsg(null)} />
 
       <Routes>
-        <Route path="/" element={<Home user={user} />} />
-        <Route path="/login" element={<Login login={login} />} />
-        <Route path="/register" element={<Register register={register} />} />
-        <Route path="/booking/:id" element={<Booking />} />
-        <Route path="/booking-summary" element={<BookingSummary />} />
-        <Route
-          path="/booking-history"
-          element={<BookingHistory user={user} />}
-        />
-      </Routes>
-      <Routes>
+  <Route path="/" element={<Home user={user} />} />
+  <Route path="/login" element={<Login login={login} />} />
+  <Route path="/register" element={<Register register={register} />} />
+  <Route path="/booking/:id" element={<Booking />} />
+  <Route path="/booking-summary" element={<BookingSummary />} />
+  <Route path="/booking-history" element={<BookingHistory user={user} />} />
   <Route path="/tracking" element={<Tracking />} />
 </Routes>
+
 
       <Footer />
     </>

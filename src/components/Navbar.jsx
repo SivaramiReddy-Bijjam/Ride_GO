@@ -46,9 +46,7 @@ export default function Navbar({ user, logout }) {
             position: "relative",
           }}
         >
-          <img
-            src="/RideGo.png"
-            alt="RideGo"
+          <img src="/Ride_GO/RideGo.png" alt="RideGo"
             onClick={(e) => {
               e.preventDefault();
               setShowPreview((prev) => !prev);
@@ -64,9 +62,7 @@ export default function Navbar({ user, logout }) {
           />
 
           {showPreview && (
-            <img
-              src="/RideGo.png"
-              alt="RideGo Preview"
+            <img src="/Ride_GO/RideGo.png" alt="RideGo Preview"
               style={{
                 position: "absolute",
                 top: "65%",
