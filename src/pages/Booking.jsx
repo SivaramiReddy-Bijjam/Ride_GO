@@ -2,22 +2,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const CITIES = [
-  "Bengaluru",
-  "Chennai",
-  "Hyderabad",
-  "Darsi",
-  "Mumbai",
-  "Delhi",
-  "Pune",
-  "Kolkata",
-  "Coimbatore",
-  "Madurai",
-  "Trichy",
-];
-
-const Surge = [
-  "Yes",
-  "No",
+  "Bengaluru","Chennai","Hyderabad","Darsi","Mumbai","Ongole",
+  "Delhi","Pune","Kolkata","Coimbatore","Madurai","Trichy",
 ];
 
 const COUNTRY_CODES = [
@@ -38,9 +24,10 @@ export default function Booking() {
   const [countryCode, setCountryCode] = useState("+91");
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
-  const [confirmOption,setConfirmOption]= useState(""); 
+  const [confirmOption,setConfirmOption]= useState("");
+
   const handleConfirm = () => {
-    if (!pickup || !drop || !date || !time || !name  ||!confirmOption)  {
+    if (!pickup || !drop || !date || !time || !name || !confirmOption) {
       alert("Please fill all details");
       return;
     }
@@ -50,137 +37,51 @@ export default function Booking() {
       return;
     }
 
-    const booking = {
-      id: Date.now(),
-      vehicleId: id,
-      vehicleName: id,
-      name,
-      phone: `${countryCode} ${phone}`,
-      pickup,
-      drop,
-      date,
-      time,
-      confirmOption,
-      fare: Math.floor(Math.random() * 500) + 500,
-    };
-
-    const prev =
-      JSON.parse(localStorage.getItem("ridego_bookings")) || [];
-
-    localStorage.setItem(
-      "ridego_bookings",
-      JSON.stringify([...prev, booking])
-    );
-
-    localStorage.setItem(
-      "ridego_last_booking",
-      JSON.stringify(booking)
-    );
-
     navigate("/booking-summary");
-    navigate("/booking-history")
-
+    navigate("/booking-history");
   };
 
   return (
     <div style={page}>
       <div style={card}>
-        <h2 style={{ marginBottom: 20 }}>
-          🚕 Booking Vehicle {id}
-        </h2>
+        <h2>🚕 Booking Vehicle {id}</h2>
 
-        <input
-          placeholder={"Full Name"}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          style={input}
-        />
-        <select value={pickup} onChange={(e) => setPickup(e.target.value)} style={input}>
+        <input placeholder="Full Name" value={name} onChange={(e)=>setName(e.target.value)} style={input}/>
+        <select value={pickup} onChange={(e)=>setPickup(e.target.value)} style={input}>
           <option value="">Select Pickup City</option>
-          {CITIES.map((c) => (
-            <option key={c}>{c}</option>
-          ))}
+          {CITIES.map(c => <option key={c}>{c}</option>)}
         </select>
 
-        <select value={drop} onChange={(e) => setDrop(e.target.value)} style={input}>
+        <select value={drop} onChange={(e)=>setDrop(e.target.value)} style={input}>
           <option value="">Select Drop City</option>
-          {CITIES.map((c) => (
-            <option key={c}>{c}</option>
-          ))}
+          {CITIES.map(c => <option key={c}>{c}</option>)}
         </select>
-        <select value={confirmOption} onChange={(e)=> setConfirmOption(e.target.value)} style={input} placeholder="Are you from surge">
+
+        <select value={confirmOption} onChange={(e)=>setConfirmOption(e.target.value)} style={input}>
           <option value="">Are you from surge</option>
           <option value="Yes">Yes</option>
           <option value="No">No</option>
-          </select>
-        <input type="date" value={date} onChange={(e) => setDate(e.target.value)} style={input} />
-        <input type="time" value={time} onChange={(e) => setTime(e.target.value)} style={input} />
+        </select>
+
+        <input type="date" value={date} onChange={(e)=>setDate(e.target.value)} style={input}/>
+        <input type="time" value={time} onChange={(e)=>setTime(e.target.value)} style={input}/>
 
         <div style={{ display: "flex", gap: 10 }}>
-          <select
-            value={countryCode}
-            onChange={(e) => setCountryCode(e.target.value)}
-            style={{ ...input, width: "35%" }}
-          >
-            {COUNTRY_CODES.map((c) => (
-              <option key={c.code} value={c.code}>
-                {c.code} ({c.label})
-              </option>
-            ))}
+          <select value={countryCode} onChange={(e)=>setCountryCode(e.target.value)} style={{...input,width:"35%"}}>
+            {COUNTRY_CODES.map(c => <option key={c.code} value={c.code}>{c.code} ({c.label})</option>)}
           </select>
-
-          <input
-            placeholder="10-digit Phone Number"
-            value={phone}
-            maxLength={10}
-            onChange={(e) =>
-              /^\d*$/.test(e.target.value) && setPhone(e.target.value)
-            }
-            style={{ ...input, width: "65%" }}
-          />
+          <input placeholder="10-digit Phone Number" value={phone} maxLength={10}
+            onChange={(e)=> /^\d*$/.test(e.target.value) && setPhone(e.target.value)}
+            style={{...input,width:"65%"}}/>
         </div>
 
-        <button style={btn} onClick={handleConfirm}>
-          Confirm Booking
-        </button>
+        <button style={btn} onClick={handleConfirm}>Confirm Booking</button>
       </div>
     </div>
   );
 }
 
-/* ================= STYLES ================= */
-
-const page = {
-  minHeight: "100vh",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  background: "#f1f5f9",
-};
-
-const card = {
-  background: "#fff",
-  padding: 30,
-  width: 420,
-  borderRadius: 12,
-  boxShadow: "0 15px 40px rgba(0,0,0,0.15)",
-};
-
-const input = {
-  width: "100%",
-  padding: 12,
-  marginBottom: 12,
-  borderRadius: 6,
-  border: "1px solid #ccc",
-};
-
-const btn = {
-  width: "100%",
-  padding: 14,
-  background: "#2563eb",
-  color: "#fff",
-  border: "none",
-  borderRadius: 8,
-  fontWeight: "bold",
-  cursor: "pointer",
-};
+const page = { minHeight:"100vh", display:"flex", alignItems:"center", justifyContent:"center", background:"#f1f5f9" };
+const card = { background:"#fff", padding:30, width:420, borderRadius:12, boxShadow:"0 15px 40px rgba(0,0,0,0.15)" };
+const input = { width:"100%", padding:12, marginBottom:12, borderRadius:6, border:"1px solid #ccc" };
+const btn = { width:"100%", padding:14, background:"#2563eb", color:"#fff", border:"none", borderRadius:8, fontWeight:"bold", cursor:"pointer" };

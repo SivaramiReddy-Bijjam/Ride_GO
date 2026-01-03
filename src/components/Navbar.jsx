@@ -6,7 +6,6 @@ export default function Navbar({ user, logout }) {
   const navigate = useNavigate();
   const [showPreview, setShowPreview] = useState(false);
 
-  // get name from registration data
   const registeredUser = JSON.parse(
     localStorage.getItem("ridego_register")
   );
@@ -35,7 +34,6 @@ export default function Navbar({ user, logout }) {
           padding: "14px 24px",
         }}
       >
-        {/* LEFT BRAND */}
         <Link
           to="/"
           style={{
@@ -46,7 +44,9 @@ export default function Navbar({ user, logout }) {
             position: "relative",
           }}
         >
-          <img src="/Ride_GO/RideGo.png" alt="RideGo"
+          <img
+            src="/Ride_GO/RideGo.png"
+            alt="RideGo"
             onClick={(e) => {
               e.preventDefault();
               setShowPreview((prev) => !prev);
@@ -62,7 +62,9 @@ export default function Navbar({ user, logout }) {
           />
 
           {showPreview && (
-            <img src="/Ride_GO/RideGo.png" alt="RideGo Preview"
+            <img
+              src="/Ride_GO/RideGo.png"
+              alt="RideGo Preview"
               style={{
                 position: "absolute",
                 top: "65%",
@@ -90,7 +92,6 @@ export default function Navbar({ user, logout }) {
           </span>
         </Link>
 
-        {/* RIGHT MENU */}
         <nav
           style={{
             display: "flex",
@@ -99,15 +100,12 @@ export default function Navbar({ user, logout }) {
             fontWeight: 500,
           }}
         >
-         
-                   {/* ✅ AFTER LOGIN */}
           {user && userName && (
             <span style={{ fontWeight: 600, color: "#150e62ff" }}>
               Welcome👋, {userName}
             </span>
           )}
 
-          {/* ✅ HOME ALWAYS VISIBLE */}
           <Link to="/" style={{ textDecoration: "none", color: "#134109ff" }}>
             Home🛖
           </Link>
@@ -130,25 +128,17 @@ export default function Navbar({ user, logout }) {
             </Link>
           )}
 
-          {/* ✅ BEFORE LOGIN (AND AFTER REGISTER) */}
           {!user && (
             <>
-              <Link
-                to="/login"
-                style={{ textDecoration: "none", color: "#132d64ff" }}
-              >
+              <Link to="/login" style={{ textDecoration: "none", color: "#132d64ff" }}>
                 Login👇
               </Link>
-              <Link
-                to="/register"
-                style={{ textDecoration: "none", color: "#0f5c1fff" }}
-              >
+              <Link to="/register" style={{ textDecoration: "none", color: "#0f5c1fff" }}>
                 Sign Up👈
               </Link>
             </>
           )}
 
-          {/* ✅ LOGOUT ONLY AFTER LOGIN */}
           {user && (
             <button
               onClick={handleLogout}
